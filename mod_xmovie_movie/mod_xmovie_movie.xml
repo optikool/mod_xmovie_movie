@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="2.5.0" client="site" method="upgrade">
+	<name>XMovie Movie</name>
+	<author>Dana Harris</author>
+	<authorEmail>optikool@yahoo.com</authorEmail>
+	<authorUrl>http://www.eyenetdesigns.com</authorUrl>
+	<creationDate>12-27-2014</creationDate>
+	<copyright>Copyright (C) 2012 Optikool.com. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>	
+	<version>1.0.0</version>
+	<description>XMovie Movie allows you to place a movie anywhere on your website.</description>
+	
+	<files>	
+		<filename module="mod_xmovie_movie">mod_xmovie_movie.php</filename>	
+		<filename>helper.php</filename>		
+		<filename>index.html</filename>		
+		<filename>mod_xmovie_movie.xml</filename>
+		<folder>css</folder>		
+		<folder>languages</folder>
+		<folder>models</folder>
+		<folder>tmpl</folder>		
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_xmovie_movie.ini</language>
+		<language tag="en-GB">languages/en-GB.mod_xmovie_movie.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/modules/mod_xmovie_movie/models/fields/modal">
+				<field name="id" type="Movie" default="0" label="MOD_XMOVIE_MOVIE_ID" description="MOD_XMOVIE_MOVIE_ID_DESC" />		
+				<field 
+				    name="cid" 
+				    type="category" 
+				    multiple="multiple"
+				    extension="com_xmovie" 
+				    default="" 
+				    label="MOD_XMOVIE_MOVIE_CID" 
+				    description="MOD_XMOVIE_MOVIE_CID_DESC" />
+				<field name="container_id" type="text" default="" label="MOD_XMOVIE_MOVIE_CONT_ID" description="MOD_XMOVIE_MOVIE_CONT_ID_DESC" />
+				<field name="movie_width" type="text" default="500" label="MOD_XMOVIE_MOVIE_WIDTH" description="MOD_XMOVIE_MOVIE_WIDTH_DESC" />
+				<field name="movie_height" type="text" default="400" label="MOD_XMOVIE_MOVIE_HEIGHT" description="MOD_XMOVIE_MOVIE_HEIGHT_DESC" />
+				<field name="pixel_percent" class="btn-group" type="radio" default="pixel" label="MOD_XMOVIE_MOVIE_PIXEL_PERCENT" description="MOD_XMOVIE_MOVIE_PIXEL_PERCENT_DESC">
+		            <option value="pixel">MOD_XMOVIE_MOVIE_PIXEL</option>
+					<option value="percent">MOD_XMOVIE_MOVIE_PERCENT</option>
+		        </field>
+				<field name="view_mode" type="list" default="latest" label="MOD_XMOVIE_MOVIE_VIEW_MODE" description="MOD_XMOVIE_MOVIE_VIEW_MODE_DESC">
+					<option value="latest">MOD_XMOVIE_MOVIE_LATEST</option>
+					<option value="oldest">MOD_XMOVIE_MOVIE_OLDEST</option>
+					<option value="random">MOD_XMOVIE_MOVIE_RANDOM</option>
+					<option value="viewed">MOD_XMOVIE_MOVIE_VIEWED</option>
+				</field>			
+				<field name="show_title" class="btn-group" type="radio" default="1" label="MOD_XMOVIE_MOVIE_SHOW_NAME" description="MOD_XMOVIE_MOVIE_SHOW_NAME_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>	            
+				</field>
+				<field name="show_thumb" class="btn-group" type="radio" default="1" label="MOD_XMOVIE_MOVIE_SHOW_THUMB" description="MOD_XMOVIE_MOVIE_SHOW_THUMB_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>	            
+				</field>
+				<field name="show_date" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_SHOW_DATE" description="MOD_XMOVIE_MOVIE_SHOW_DATE_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="show_hits" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_SHOW_HITS" description="MOD_XMOVIE_MOVIE_SHOW_HITS_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="show_submitter" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_SHOW_SUBMITTER" description="MOD_XMOVIE_MOVIE_SHOW_SUBMITTER_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field> 
+				<field name="show_description" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_SHOW_MOVIE_DESCRIPTION" description="MOD_XMOVIE_MOVIE_SHOW_MOVIE_DESCRIPTION_DESC"> 
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="show_quicktake" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_SHOW_MOVIE_QUICKTAKE" description="MOD_XMOVIE_MOVIE_SHOW_MOVIE_QUICKTAKE_DESC"> 
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="show_protected" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_SHOW_PROTECTED" description="MOD_XMOVIE_MOVIE_SHOW_PROTECTED_DESC"> 
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="show_css" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_ENABLE_CSS" description="MOD_XMOVIE_MOVIE_ENABLE_CSS_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="load_jquery" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_LOAD_JQUERY" description="MOD_XMOVIE_MOVIE_LOAD_JQUERY_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="load_flowplayer" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_FLOWPLAYER" description="MOD_XMOVIE_MOVIE_FLOWPLAYER_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="container_id" type="text" default="" label="MOD_XMOVIE_MOVIE_CONT_ID" description="MOD_XMOVIE_MOVIE_CONT_ID_DESC" />	
+			</fieldset>
+			<fieldset name="advanced">
+			    <field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />	
+				<field 
+				    name="moduleclass_sfx" 
+				    type="text" 
+				    size="30" 
+				    default="" 
+				    label="MOD_MODULE_CLASS_SUFFIX" 
+				    description="MOD_MODULE_CLASS_SUFFIX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
