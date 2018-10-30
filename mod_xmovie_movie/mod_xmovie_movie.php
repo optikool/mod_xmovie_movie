@@ -33,8 +33,6 @@ $movieinfo->submitter = $user->username;
 
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
-$mcode = MovieHelper::getEmbedCode($movieinfo, $params->get('movie_width'), $params->get('movie_height'), $params->get('pixel_percent'));
-
 if($params->get('show_description')) {
 	$movieinfo->description = $movieinfo->fulltext;
 } elseif($params->get('show_quicktake')) {
@@ -44,20 +42,7 @@ if($params->get('show_description')) {
 }
 
 if($params->get('show_css')) {
-	$document = JFactory::getDocument();
-	$document->addStyleSheet(JURI::root(true).'/modules/mod_xmovie_movie/css/default-style.css');
-}
-
-if($params->get('load_jquery')) {
-	$document->addScript(JURI::root(true).'/components/com_xmovie/js/jquery.min.js');
-	$document->addScript(JURI::root(true).'/components/com_xmovie/js/jquery-ui-custom.min.js');	
-	//$document->addScript(JURI::root(true).'/components/com_xmovie/js/jquery.tools.min.js');	
-}
-
-if($movieinfo->type == '13' || $movieinfo->type == '14' || $movieinfo->type == '23' || $movieinfo->type == '24' || $params->get('load_flowplayer')) {
-	$document->addScript(JURI::base(true).'/components/com_xmovie/js/flowplayer.min.js');
-	$document->addStyleSheet(JURI::base(true).'/components/com_xmovie/css/skin/all-skins.css');
-	$document->addStyleSheet(JURI::base(true).'/components/com_xmovie/css/flowplayer-style.css');
+	$document->addStyleSheet(JURI::root(true).'/modules/mod_xmovie_movie/css/style.css');
 }
 
 require JModuleHelper::getLayoutPath('mod_xmovie_movie', $params->get('layout', 'default'));

@@ -16,7 +16,7 @@ class JFormFieldMovie extends JFormField {
 	protected $type = 'Movie';
 	
 	protected function getInput() {
-		$db =& JFactory::getDBO();
+		$db = JFactory::getDBO();
 		
 		$query = 'SELECT id, title AS name FROM #__xmovie_movies WHERE published=1 ORDER BY name';
 		$db->setQuery($query);

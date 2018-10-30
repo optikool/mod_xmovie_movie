@@ -16,7 +16,7 @@ class JFormFieldCategory extends JFormField {
 	protected $type = 'Category';
 	
 	protected function getInput() {
-		$db =& JFactory::getDBO();
+		$db = JFactory::getDBO();
 		
 		$query = "SELECT id, title AS name, level, published FROM #__categories WHERE published=1 AND extension = 'com_xmovie' ORDER BY lft ASC";
 		$db->setQuery($query);

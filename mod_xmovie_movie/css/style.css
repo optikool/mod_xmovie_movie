@@ -25,3 +25,7 @@
   padding-bottom: 75%;
 }
 
+.xmovie-movie .movie-tags ul.tags {
+  float: right;
+}
+

@@ -77,19 +77,15 @@
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
+				<field name="show_tags" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_SHOW_TAGS" description="MOD_XMOVIE_MOVIE_SHOW_TAGS_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
 				<field name="show_protected" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_SHOW_PROTECTED" description="MOD_XMOVIE_MOVIE_SHOW_PROTECTED_DESC"> 
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 				<field name="show_css" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_ENABLE_CSS" description="MOD_XMOVIE_MOVIE_ENABLE_CSS_DESC">
-					<option value="1">JYES</option>
-					<option value="0">JNO</option>
-				</field>
-				<field name="load_jquery" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_LOAD_JQUERY" description="MOD_XMOVIE_MOVIE_LOAD_JQUERY_DESC">
-					<option value="1">JYES</option>
-					<option value="0">JNO</option>
-				</field>
-				<field name="load_flowplayer" class="btn-group" type="radio" default="0" label="MOD_XMOVIE_MOVIE_FLOWPLAYER" description="MOD_XMOVIE_MOVIE_FLOWPLAYER_DESC">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>

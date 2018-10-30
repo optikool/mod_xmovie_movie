@@ -9,18 +9,23 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
 defined('_JEXEC') or die('Restricted access');
-
+$videoTemplate = MovieHelper::getVideoTemplate($movieinfo->type);
+$movieinfo->size = MovieHelper::getVideoDimensions($movieinfo->width, $movieinfo->height);
+$movieinfo->videoLink = MovieHelper::getResolvedMovieLink($movieinfo->link);
+$movieinfo->posterLink = MovieHelper::getResolvedMovieImage($movieinfo->thumb);
+$cwd = getcwd();
 $contId = $params->get('container_id', '');
 $contIdInner = '';
+
 if($contId != '') {
 	$contIdInner = ' '.$contId.'-inner';
 	$contId = 'id="'.$contId.'"';
 }
 ?>
 
-<div <?php echo $contId; ?> class="<?php echo $moduleclass_sfx; ?>">
+<div <?php echo $contId; ?> class="xmovie-movie <?php echo $moduleclass_sfx; ?>">
 	<div class="movie-container<?php echo $contIdInner; ?>">
-		<?php echo $mcode; ?>
+	<?php include($cwd . '/modules/mod_xmovie_movie/tmpl/default_' . $videoTemplate . '.php'); ?>
 	</div>
 	<div>
 		<?php if($params->get('show_title')) {?>
@@ -38,6 +43,13 @@ if($contId != '') {
 			<?php if($params->get('show_submitter')) {?>
 			<li class="movie-sumbitter"><strong><?php echo JTEXT::_('MOD_XMOVIE_MOVIE_SUBMITTER'); ?>:</strong> <span class="xmm-submitter"><?php echo $movieinfo->submitter; ?></span></li>
 			<?php } ?>
+			<?php if ($params->get('show_tags')) {
+				$movieinfo->tags = new JHelperTags;
+				$movieinfo->tags->getItemTags('com_xmovie.movie' , $movieinfo->id);
+				$movieinfo->tagLayout = new JLayoutFile('joomla.content.tags');
+			?>
+			<li class="movie-tags"><strong><?php echo JTEXT::_('MOD_XMOVIE_MOVIE_TAGS'); ?>:</strong> <?php echo $movieinfo->tagLayout->render($movieinfo->tags->itemTags); ?></li>
+		<?php } ?>
 		</ul>
 		<?php } ?>
 		

@@ -28,7 +28,7 @@ class modXMovieMovieHelper {
 		}
 			
 		if($id == 0) {
-			if(count($cid) > 0) {				
+			if($cid > 0) {				
 				$query->where('catid IN ('.$cid.')');
 			}
 		} else {
